@@ -1,16 +1,30 @@
 <template>
-    <div class="pokemon-item">
+    <div 
+        @click="redirectPokemonDetail"
+        class="pokemon-item"
+    >
         <img :src="pokemon.sprites.other.dream_world.front_default" :alt="pokemon.id">
         <h3>{{ pokemon.name }}</h3>
     </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
     props: {
         pokemon: {
             type: Object,
             required: true
+        }
+    },
+    methods: {
+        ...mapMutations('pokemon', ['setPokemonSelected', 'setLoading']),
+        redirectPokemonDetail() {
+            this.setLoading(true);
+            this.$router.push(`detail/${this.pokemon.id}`);
+            this.setPokemonSelected(this.pokemon);
+            this.setLoading(false);
         }
     }
 }
