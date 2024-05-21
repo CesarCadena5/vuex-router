@@ -1,0 +1,5 @@
+export default () => ({
+    pokemons: [],
+    loading: false,
+    error: ''
+})
