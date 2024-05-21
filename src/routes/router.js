@@ -1,10 +1,9 @@
-const { createRouter, createWebHashHistory } = require("vue-router");
-
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
     {
         path: '/',
-        redirect: { name: '/pokemon' }
+        redirect: { name: 'pokemon' }
     },
     {
         path: '/pokemon',

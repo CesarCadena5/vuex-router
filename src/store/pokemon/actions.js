@@ -4,12 +4,11 @@ export const getPokemons = async ({ commit }, offset = 0) => {
     commit('setLoading', true);
 
     try {
-        const { results } = await getDataApi(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`);
+        const { results } = await getDataApi(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`);
         if (results.length > 0) {
             const data = await traverseData(results);
-            console.log(data)
+            commit('setPokemons', data);
         }
-        commit('setPokemons', results);
     } catch (error) {
         commit('setError', 'Ocurrió un error al obtener los pokemones');
     } finally {
