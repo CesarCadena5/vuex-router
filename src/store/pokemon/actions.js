@@ -9,7 +9,7 @@ export const getPokemons = async ({ commit }, offset = 0) => {
             const data = await traverseData(results);
             console.log(data)
         }
-        commit('setPokemones', results);
+        commit('setPokemons', results);
     } catch (error) {
         commit('setError', 'Ocurrió un error al obtener los pokemones');
     } finally {

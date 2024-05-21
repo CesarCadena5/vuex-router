@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>Pokemon</h2>
-        <!-- <router-view></router-view> -->
+        <router-view></router-view>
     </div>
 </template>
 
