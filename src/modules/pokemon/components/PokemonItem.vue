@@ -1,5 +1,6 @@
 <template>
-    <div 
+    <div
+        v-if="pokemon"
         @click="redirectPokemonDetail"
         :style="{width: widthContainer}"
         class="pokemon-item"
@@ -24,7 +25,7 @@ export default {
         },
         heightImage: {
             type: String,
-            default: '300px'
+            default: '200px'
         },
         widthContainer: {
             type: String,
@@ -57,6 +58,7 @@ export default {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: .3rem;
     margin-bottom: .6rem;
+    cursor: pointer
 }
 
 .pokemon-item img {

@@ -16,6 +16,11 @@ const routes = [
                 component: () => import("@/modules/pokemon/pages/PokemonList.vue")
             },
             {
+                path: 'search-pokemon',
+                name: 'search-pokemon',
+                component: () => import("@/modules/pokemon/pages/PokemonSearch.vue")
+            },
+            {
                 path: 'detail/:id',
                 name: 'pokemon-detail',
                 component: () => import("@/modules/pokemon/pages/PokemonDetail.vue"),

@@ -1,6 +1,7 @@
 <template>
     <nav class="navbar">
         <router-link :to="{name: 'list-pokemon'}">Lista de Pokemones</router-link>
+        <router-link :to="{name: 'search-pokemon'}">Buscar Pokemón</router-link>
     </nav>
 </template>
 
