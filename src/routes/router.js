@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 const routes = [
     {
         path: '/',
-        redirect: { name: 'pokemon' }
+        redirect: { name: 'list-pokemon' }
     },
     {
         path: '/pokemon',
@@ -18,7 +18,17 @@ const routes = [
             {
                 path: 'detail/:id',
                 name: 'pokemon-detail',
-                component: () => import("@/modules/pokemon/pages/PokemonDetail.vue")
+                component: () => import("@/modules/pokemon/pages/PokemonDetail.vue"),
+                children: [
+                    {
+                        path: 'abilities/:nameAbility',
+                        component: () => import("@/modules/pokemon/components/PokemonAbilities.vue"),
+                        name: 'pokemon-ability-name',
+                        props: ({ params }) => {
+                            return { nameAbility: params.nameAbility };
+                        }
+                    }
+                ]
             },
             {
                 path: '',

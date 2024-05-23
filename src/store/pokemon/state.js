@@ -2,5 +2,6 @@ export default () => ({
     pokemons: [],
     loading: false,
     error: '',
-    pokemonSelected: []
+    pokemonSelected: [],
+    ability: []
 })
