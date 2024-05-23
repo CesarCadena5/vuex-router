@@ -2,14 +2,9 @@
     <div
         v-if="pokemon"
         @click="redirectPokemonDetail"
-        :style="{width: widthContainer}"
+        :style="{width: widthContainer, height: widthContainer, backgroundImage: computedImage, backgroundSize: sizeImage}"
         class="pokemon-item"
     >
-        <img 
-            :style="{height: heightImage}"
-            :src="computedImage" 
-            :alt="pokemon.id"
-        >
         <h3>{{ pokemon.name }}</h3>
     </div>
 </template>
@@ -23,9 +18,9 @@ export default {
             type: Object,
             required: true
         },
-        heightImage: {
+        sizeImage: {
             type: String,
-            default: '200px'
+            default: '180px 180px'
         },
         widthContainer: {
             type: String,
@@ -34,7 +29,7 @@ export default {
     },
     computed: {
         computedImage() {
-            return this.pokemon.sprites.other.dream_world.front_default || 'https://cdn.pixabay.com/photo/2017/11/10/04/47/image-2935360_640.png';
+            return `url(${this.pokemon.sprites.other.dream_world.front_default})` || `url(https://cdn.pixabay.com/photo/2017/11/10/04/47/image-2935360_640.png)`;
         }
     },  
     methods: {
@@ -54,15 +49,29 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
     border-radius: .3rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: .3rem;
     margin-bottom: .6rem;
-    cursor: pointer
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.pokemon-item img {
+.pokemon-item h3 {
+    position: absolute;
+    bottom: -.7rem;
+}
+
+.pokemon-item::after {
+    content: "";
     width: 100%;
-    object-fit: contain;
+    height: 100%;
+    background: inherit;
+    position: absolute;
+    filter: drop-shadow(3px 3px 10px #cde54e) blur(.8rem);
+    z-index: -1;
 }
 </style>

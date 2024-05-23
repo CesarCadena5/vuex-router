@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section v-if="!error">
         <h2>Pokemon List</h2>
 
         <div
@@ -24,11 +24,14 @@
             </button>
         </div>
     </section>
+    <section v-else>
+        <h2>{{ error }}</h2>
+    </section>
 </template>
 
 <script>
 import { defineAsyncComponent } from 'vue';
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapMutations } from 'vuex';
 
 export default {
     components: {
@@ -45,6 +48,7 @@ export default {
     },
     methods: {
         ...mapActions('pokemon', ['getPokemons']),
+        ...mapMutations('pokemon', ['setError']),
         getMorePokemons() {
             this.offset += 10;
         }
@@ -55,6 +59,7 @@ export default {
         }
     },
     created() {
+        this.setError('');
         this.getPokemons();
     }
 }

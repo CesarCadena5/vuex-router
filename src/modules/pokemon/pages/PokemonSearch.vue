@@ -14,7 +14,7 @@
         <PokemonItem 
             v-else
             :pokemon="pokemonSelected"
-            heightImage="300px"
+            sizeImage="300px 300px"
             widthContainer="400px"
         />
     </article>

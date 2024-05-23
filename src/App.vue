@@ -33,6 +33,8 @@ body {
   font-family: "VT323", monospace;
   font-weight: 100;
   letter-spacing: 1px;
+  background-color: #2b4c7e;
+  color: white;
 }
 
 button {

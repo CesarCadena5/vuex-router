@@ -1,0 +1,1 @@
+import { getDataApi } from "@/helpers/getDataApi";

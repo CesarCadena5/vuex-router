@@ -1,5 +1,5 @@
 <template>
-    <aside>
+    <aside v-if="!error">
         <h2>Detalle del Pokemon</h2>
         <aside
             v-if="ability.name" 
@@ -12,17 +12,20 @@
                     v-for="pokemon in pokemons" 
                     :key="pokemon.id" 
                     :pokemon="pokemon"
-                    heightImage="60px"
+                    sizeImage="50px 50px"
                     widthContainer="100px"
                 />
             </div>
         </aside>
     </aside>
+    <aside v-else>
+        <h2>{{ error }}</h2>
+    </aside>
 </template>
 
 <script>
 import { defineAsyncComponent } from 'vue';
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapMutations, mapState } from 'vuex';
 export default {
     props: {
         nameAbility: {
@@ -35,7 +38,7 @@ export default {
         PokemonItem: defineAsyncComponent(() => import("./PokemonItem.vue"))
     },
     computed: {
-        ...mapState('pokemon', ['ability', 'loading', 'pokemons']),
+        ...mapState('pokemon', ['ability', 'loading', 'pokemons', 'error']),
         descriptionAbility() {
             if (this.ability && this.ability.flavor_text_entries.length > 0) {
                 const descriptionsAbilities = this.ability.flavor_text_entries;
@@ -50,7 +53,8 @@ export default {
         }
     },
     methods: {
-        ...mapActions('pokemon', ['getAbility', 'getPokemonAbility'])
+        ...mapActions('pokemon', ['getAbility', 'getPokemonAbility']),
+        ...mapMutations('pokemon', ['setError'])
     },
     watch: {
         nameAbility(value) {

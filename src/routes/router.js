@@ -43,6 +43,33 @@ const routes = [
         ]
     },
     {
+        path: '/dbz',
+        name: 'dbz',
+        component: () => import("@/modules/dbz/layouts/DbzLayout.vue"),
+        children: [
+            {
+                path: 'list',
+                name: 'dbz-list',
+                component: () => import("@/modules/dbz/pages/DbzList.vue")
+            },
+            {
+                path: 'search',
+                name: 'dbz-search',
+                component: () => import("@/modules/dbz/pages/DbzSearch.vue")
+            },
+            {
+                path: 'detail/:id',
+                name: 'dbz-detail',
+                component: () => import("@/modules/dbz/pages/DbzDetail.vue")
+            },
+            {
+                path: '',
+                name: 'dbz-redirect-list',
+                redirect: { name: 'dbz-list' }
+            }
+        ]
+    },
+    {
         path: '/:pathMatch(.*)*',
         component: () => import("@/modules/shared/pages/404.vue")
     }
