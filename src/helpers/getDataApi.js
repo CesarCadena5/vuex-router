@@ -1,8 +1,12 @@
 export const getDataApi = async (URL) => {
-    const resp = await fetch(URL);
-    const json = await resp.json();
+    try {
+        const resp = await fetch(URL);
+        const json = await resp.json();
 
-    return json;
+        return json;
+    } catch (error) {
+        throw new ('Error al obtener el pokemon');
+    }
 };
 
 export const traverseData = async (data = []) => {

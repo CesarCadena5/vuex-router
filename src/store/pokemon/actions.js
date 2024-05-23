@@ -30,6 +30,18 @@ export const getPokemonAbility = async ({ commit }, pokemonsUrl) => {
 
         commit('setPokemons', pokemons);
     } catch (error) {
-        commit('setError', 'Ocurrió un error al obtener el Pokemon');
+        commit('setError', 'Ocurrió un error al obtener la habilidad del Pokemon');
+    }
+}
+
+export const getPokemon = async ({ commit }, name = 'pikachu') => {
+    commit('setLoading', true);
+    try {
+        const pokemon = await getDataApi(`https://pokeapi.co/api/v2/pokemon/${name}/`);
+        commit('setPokemonSelected', pokemon);
+    } catch (error) {
+        commit('setError', `No se encontraron coincidencias con el nombre (${name})`);
+    } finally {
+        commit('setLoading', false);
     }
 }

@@ -19,6 +19,7 @@ export default {
     background-color: steelblue;
     height: 50px;
     display: flex;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
 }
@@ -32,5 +33,9 @@ a {
 
 a:hover {
     color: greenyellow;
+}
+
+a.router-link-exact-active {
+    color: #43ba69;
 }
 </style>
