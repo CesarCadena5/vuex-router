@@ -60,7 +60,10 @@ const routes = [
             {
                 path: 'detail/:id',
                 name: 'dbz-detail',
-                component: () => import("@/modules/dbz/pages/DbzDetail.vue")
+                component: () => import("@/modules/dbz/pages/DbzDetail.vue"),
+                props: ({ params }) => {
+                    return { id: params.id };
+                }
             },
             {
                 path: '',

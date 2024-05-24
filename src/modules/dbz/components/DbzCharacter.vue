@@ -1,5 +1,8 @@
 <template>
-    <div class="dbz-character">
+    <article 
+        class="dbz-character"
+        @click="characterDetail"
+        >
         <div class="character-img">
             <img :src="imgCharacter" alt="character.id">
         </div>
@@ -15,7 +18,7 @@
             <h4 class="fs-4">Grupo</h4>
             <span class="yellow-color fs-3">{{ character.affiliation }}</span>
         </div>
-    </div>
+    </article>
 </template>
 
 <script>
@@ -30,6 +33,11 @@ export default {
         imgCharacter() {
             return this.character.image; 
         }
+    },
+    methods: {
+        characterDetail() {
+            this.$router.push({name: 'dbz-detail', params: {id: this.character.id}});
+        }
     }
 }
 </script>
@@ -37,8 +45,6 @@ export default {
 <style scoped>
 .dbz-character {
     width: 280px;
-    /* min-height: 565px;
-    max-height: 565px; */
     display: flex;
     flex-direction: column;
     background-color: #606d80;
@@ -82,9 +88,5 @@ export default {
     padding-left: 1rem;
     padding-bottom: 1rem;
     margin-top: 1rem;
-}
-
-.yellow-color {
-    color: #f7f799;
 }
 </style>

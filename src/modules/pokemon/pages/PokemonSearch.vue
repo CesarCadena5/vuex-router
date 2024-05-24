@@ -64,37 +64,6 @@ export default {
     padding: 1rem;
 }
 
-.form {
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
-}
-
-.form input {
-    height: 1.6rem;
-    outline: none;
-    border: 1px solid steelblue;
-    border-radius: .3rem;
-    background-color: gainsboro;
-    font-weight: 600;
-    padding: .3rem;
-}
-
-.form button {
-    padding: 0 1rem;
-    border-radius: .3rem;
-    border: none;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color .4s linear;
-    background-color: slateblue;
-    color: white;
-}
-
-.form button:hover {
-    background-color: #10898b;
-}
-
 .card-pokemon {
     width: 100%;
     height: 100%;

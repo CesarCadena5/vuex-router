@@ -11,3 +11,15 @@ export const getDbzCharacters = async ({ commit }, page = 1) => {
         commit('setLoading', false);
     }
 }
+
+export const getDbzCharacter = async ({ commit }, query) => {
+    commit('setLoading', true);
+    const character = await getDataApi(`https://dragonball-api.com/api/characters${query}`);
+
+    if ((character && character.statusCode >= 400) || character.length === 0) {
+        commit('setError', 'No se pudo obtener el personaje :(');
+    } else {
+        commit('setDbzCharacter', character);
+    }
+    commit('setLoading', false);
+}

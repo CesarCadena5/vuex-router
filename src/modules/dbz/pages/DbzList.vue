@@ -65,6 +65,7 @@ export default {
     flex-wrap: wrap;
     gap: 2rem;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .btn-add-pokemons {

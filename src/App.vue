@@ -55,4 +55,8 @@ body {
 button {
   font-family: inherit;
 }
+
+.yellow-color {
+  color: #f7f799;
+}
 </style>
