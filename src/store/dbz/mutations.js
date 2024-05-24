@@ -7,11 +7,11 @@ export const setError = (state, error) => {
 }
 
 export const setDbzCharacters = (state, characters) => {
-    state.characters = characters;
+    state.dbzCharacters = characters;
 }
 
 export const setDbzCharacter = (state, character) => {
-    state.character = character;
+    state.dbzCharacter = character;
 }
 
 export const setPlanets = (state, planets) => {

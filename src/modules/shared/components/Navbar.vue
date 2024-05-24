@@ -36,10 +36,10 @@ a {
 }
 
 a:hover {
-    color: greenyellow;
+    color: #1f1f20;
 }
 
 a.router-link-exact-active {
-    color: #081ca1;
+    color: #f7f799;
 }
 </style>

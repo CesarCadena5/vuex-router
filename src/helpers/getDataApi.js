@@ -5,7 +5,7 @@ export const getDataApi = async (URL) => {
 
         return json;
     } catch (error) {
-        throw new ('Error al obtener el pokemon');
+        throw new ('Error al obtener el dato');
     }
 };
 

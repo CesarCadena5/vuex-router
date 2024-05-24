@@ -63,6 +63,7 @@ export default {
 .pokemon-item h3 {
     position: absolute;
     bottom: -.7rem;
+    margin: 1rem;
 }
 
 .pokemon-item::after {

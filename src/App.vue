@@ -28,13 +28,28 @@ html {
   box-sizing: inherit;
 }
 
+h1,h2,h3,h4,h5,span,p{
+  margin: .2rem;
+}
+
+.fs-2 {
+  font-size: 1.2rem;
+}
+
+.fs-3 {
+  font-size: 1.3rem;
+}
+
+.fs-4 {
+  font-size: 2rem;
+}
+
 body {
   margin: 0;
   font-family: "VT323", monospace;
-  font-weight: 100;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   background-color: #2b4c7e;
-  color: white;
+  color: #dce0e6;
 }
 
 button {
